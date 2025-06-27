@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campanha Rifa Time Sales</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Campanha "Juntos pelo Sales"</h1>
+    <p>Olá, eu sou um dos integrantes do time de handebol Sales.</p>
+  </header>
+
+  <main>
+    <section class="info">
+      <h2>Sobre a campanha</h2>
+      <p>
+        A gente do time está com uma iniciativa independente, que não envolve a gestão escolar, e gostaria de saber se vocês topariam apoiar. <br><br>
+        A proposta é organizar uma rifa com o objetivo de arrecadar dinheiro para cobrir alguns custos do time.
+        Essa é uma ideia pensada entre os próprios integrantes do time, com o intuito de garantir melhores condições para todos.
+      </p>
+    </section>
+
+    <section class="pix-container">
+      <h3>Pagamento via Pix</h3>
+      <div class="pix-info">
+        <p><strong>Chave Pix:</strong></p>
+        <div class="pix-key-copy-wrapper" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <div class="pix-key-box" id="pixKey" style="word-break: break-all;">5d7e9815-4788-4854-96c6-eef5f8f9018a</div>
+          <button type="button" id="copyPixBtn" title="Copiar chave Pix">Copiar</button>
+        </div>
+        <p>Ao escolher Pix, faça o pagamento usando essa chave e anexe o comprovante abaixo.</p>
+      </div>
+      <div id="pixUploadDiv" style="display:none; margin-top: 1rem;">
+        <label for="pixProof">Anexe o comprovante do Pix:</label>
+        <input type="file" id="pixProof" name="pixProof" accept="image/*,application/pdf" />
+      </div>
+      <div id="pixPaymentLink" style="margin-top: 1rem;"></div>
+    </section>
+
+    <section class="form-section">
+      <h2>Mostre seu apoio</h2>
+      <form id="supportForm" enctype="multipart/form-data">
+        <label for="name">Nome completo:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="phone">Número para contato:</label>
+        <input type="tel" id="phone" name="phone" pattern="\+?\d{8,15}" placeholder="+55 18 99999-9999" required />
+
+        <div id="boughtNumbers" style="margin-top: 1rem; font-weight: 600;"></div>
+
+        <label>Você gostaria de participar da rifa?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="participate" value="Sim" required /> Sim</label>
+          <label><input type="radio" name="participate" value="Não" /> Não</label>
+        </div>
+
+        <label for="paymentMethod">Forma de pagamento:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="" disabled selected>Escolha</option>
+          <option value="Pix">Pix</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+
+        <div id="pixUploadDivForm" style="display:none;">
+          <label for="pixProof">Anexe o comprovante do Pix:</label>
+          <input type="file" id="pixProof" name="pixProof" accept="image/*,application/pdf" />
+        </div>
+
+        <label>Escolha seus números da rifa (R$10,00 cada):</label>
+        <div id="numerosContainer" class="numeros-container"></div>
+
+        <input type="hidden" name="numerosSelecionados" id="numerosSelecionados" required />
+
+        <div id="totalCompra" style="margin-top: 1rem;"></div>
+        <div id="pixPaymentLink"></div>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div id="message"></div>
+    </section>
+
+    <!-- NOVO CONTAINER DE AGRADECIMENTO -->
+    <section style="background-color: #f3f4f6; padding: 1.5rem; margin-top: 2rem; border-radius: 8px; text-align: center;">
+      <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Contamos com o apoio de vocês!</strong></p>
+      <p>Muito obrigado pela atenção, compreensão e, principalmente, por acreditar no esforço e no sonho do nosso time.</p>
+      <p>Qualquer dúvida, estarei por aqui. 🤝</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Obrigado pelo apoio! — Time de Handebol Sales 🤾🏻</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
