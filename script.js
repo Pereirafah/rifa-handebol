@@ -1,77 +1,73 @@
+
 const numerosContainer = document.getElementById('numerosContainer');
 const numerosSelecionadosInput = document.getElementById('numerosSelecionados');
 const totalCompraDiv = document.getElementById('totalCompra');
 const form = document.getElementById('supportForm');
 const messageDiv = document.getElementById('message');
 const paymentMethodSelect = document.getElementById('paymentMethod');
-const pixUploadDivForm = document.getElementById('pixUploadDivForm');
 const phoneInput = document.getElementById('phone');
 
 const VALOR_NUMERO = 10;
-const MAX_NUMEROS = 100;
+
+const nomes = [
+  "Maria", "Graziela", "Claudia", "Regiane", "Vilma", "Fernanda", "Emília", "Daniela", "Sandra", "Zuleika",
+  "Marisa", "Emanoele", "Dolores", "Celina", "Tereza", "Solange", "Ângela", "Guiomar", "Margot", "Dalila",
+  "Anadark", "Cristina", "Débora", "Eliane", "Genilda", "Rosália", "Simone", "Helena", "Valquíria", "Andréa",
+  "Cleide", "Elaine", "Roberta", "Glória", "Suzana", "Adriana", "Olga", "Izabel", "Juliana", "Kátia",
+  "Irene", "Jurema", "Letícia", "Marta", "Paula", "Marcela", "Olívia", "Joana", "Lenice", "Fátima",
+  "Rosimeire", "Denise", "Elizabeth", "Claudete", "Regina", "Celeste", "Aurora", "Rosângela", "Lourdes", "Isaura",
+  "Mônica", "Leonor", "Janete", "Raquel", "Virgínia", "Camila", "Roseli", "Valéria", "Adelaide", "Salete",
+  "Zulmira", "Sheila", "Cleuza", "Antônia", "Joelma", "Iolanda", "Miriam", "Olinda", "Norma", "Luciana",
+  "Alessandra", "Clarice", "Sônia", "Dirce", "Marlene", "Jaqueline", "Noêmia", "Margarida", "Patrícia", "Estela",
+  "Dinorá", "Márcia", "Rosana", "Silvana", "Neuza", "Margarete", "Eugênia", "Renata", "Nazaré", "Mirtes"
+];
+
+const MAX_NUMEROS = nomes.length;
 
 let numerosSelecionados = new Set();
 
-// Criar botões para números de 1 a 100
-for (let i = 1; i <= 100; i++) {
+// Criar botões com os nomes
+nomes.forEach((nome) => {
   const btn = document.createElement('button');
   btn.type = "button";
-  btn.textContent = i.toString().padStart(2, '0');
-  btn.value = i;
+  btn.textContent = nome;
+  btn.value = nome;
   btn.classList.add('numero-btn');
   btn.addEventListener('click', () => {
-    if (numerosSelecionados.has(i)) {
-      numerosSelecionados.delete(i);
+    if (numerosSelecionados.has(nome)) {
+      numerosSelecionados.delete(nome);
       btn.classList.remove('selected');
     } else {
       if (numerosSelecionados.size >= MAX_NUMEROS) {
-        alert(`Você pode escolher até ${MAX_NUMEROS} números.`);
+        alert(`Você pode escolher até ${MAX_NUMEROS} nomes.`);
         return;
       }
-      numerosSelecionados.add(i);
+      numerosSelecionados.add(nome);
       btn.classList.add('selected');
     }
     atualizarNumerosSelecionados();
   });
   numerosContainer.appendChild(btn);
-}
+});
 
 function atualizarNumerosSelecionados() {
-  const arr = Array.from(numerosSelecionados).sort((a,b) => a-b);
-  numerosSelecionadosInput.value = arr.join(',');
+  const arr = Array.from(numerosSelecionados).sort();
+  numerosSelecionadosInput.value = arr.join(', ');
   if (arr.length > 0) {
-    totalCompraDiv.textContent = `Você escolheu ${arr.length} número(s). Total: R$ ${(arr.length * VALOR_NUMERO).toFixed(2)}`;
+    totalCompraDiv.textContent = `Você escolheu ${arr.length} pessoa(s). Total: R$ ${(arr.length * VALOR_NUMERO).toFixed(2)}`;
   } else {
     totalCompraDiv.textContent = '';
   }
 }
 
-// Mostrar/esconder campo de comprovante Pix
-paymentMethodSelect.addEventListener('change', () => {
-  if (paymentMethodSelect.value === 'Pix') {
-    pixUploadDivForm.style.display = 'block';
-    document.getElementById('pixProof').required = true;
-  } else {
-    pixUploadDivForm.style.display = 'none';
-    document.getElementById('pixProof').required = false;
-  }
-});
-
-// Formata telefone para (XX) 9XXXX-XXXX enquanto digita
+// Formata telefone
 function formatPhone(value) {
   const digits = value.replace(/\D/g, '');
   if (digits.length === 0) return '';
 
-  if (digits.length <= 2) {
-    return `(${digits}`;
-  }
-  if (digits.length <= 7) {
-    return `(${digits.slice(0,2)}) ${digits.slice(2)}`;
-  }
-  if (digits.length <= 11) {
-    return `(${digits.slice(0,2)}) ${digits.slice(2,3)}${digits.slice(3,7)}-${digits.slice(7,11)}`;
-  }
-  // Caso tenha mais que 11 dígitos, corta o excedente
+  if (digits.length <= 2) return `(${digits}`;
+  if (digits.length <= 7) return `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+  if (digits.length <= 11) return `(${digits.slice(0,2)}) ${digits.slice(2,3)}${digits.slice(3,7)}-${digits.slice(7,11)}`;
   return `(${digits.slice(0,2)}) ${digits.slice(2,3)}${digits.slice(3,7)}-${digits.slice(7,11)}`;
 }
 
@@ -94,18 +90,17 @@ form.addEventListener('submit', (e) => {
   const phone = form.phone.value.trim();
   const participate = form.participate.value;
   const paymentMethod = paymentMethodSelect.value;
-  const numerosArray = Array.from(numerosSelecionados).sort((a,b) => a-b);
+  const nomesArray = Array.from(numerosSelecionados).sort();
 
-  // Validações simples
   if (!name || !phone || !participate) {
     messageDiv.style.color = 'red';
     messageDiv.textContent = 'Por favor, preencha todos os campos obrigatórios.';
     return;
   }
 
-  if (participate === 'Sim' && numerosArray.length === 0) {
+  if (participate === 'Sim' && nomesArray.length === 0) {
     messageDiv.style.color = 'red';
-    messageDiv.textContent = 'Escolha pelo menos um número da rifa.';
+    messageDiv.textContent = 'Escolha pelo menos uma pessoa da lista.';
     return;
   }
 
@@ -115,15 +110,6 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  if (paymentMethod === 'Pix') {
-    const pixProof = document.getElementById('pixProof').files[0];
-    if (!pixProof) {
-      messageDiv.style.color = 'red';
-      messageDiv.textContent = 'Por favor, anexe o comprovante do Pix.';
-      return;
-    }
-  }
-
   // Montar mensagem para WhatsApp
   let msg = `Olá! Quero participar da rifa do Time Sales.\n\n`;
   msg += `Nome: ${name}\n`;
@@ -131,30 +117,26 @@ form.addEventListener('submit', (e) => {
   msg += `Participar da rifa: ${participate}\n`;
   msg += `Forma de pagamento: ${paymentMethod}\n`;
   if (participate === 'Sim') {
-    msg += `Números escolhidos: ${numerosArray.join(', ')}\n`;
-    msg += `Valor total: R$ ${(numerosArray.length * VALOR_NUMERO).toFixed(2)}\n`;
+    msg += `Pessoas escolhidas: ${nomesArray.join(', ')}\n`;
+    msg += `Valor total: R$ ${(nomesArray.length * VALOR_NUMERO).toFixed(2)}\n`;
   }
   msg += `\nObrigado!`;
 
   const encodedMsg = encodeURIComponent(msg);
-  const whatsappNumber = "5518998098825"; // Seu número sem sinais e com DDD
-
+  const whatsappNumber = "5518998098825";
   const urlWhats = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
 
-  // Abrir WhatsApp em nova aba
   window.open(urlWhats, '_blank');
 
-  // Opcional: limpar formulário e seleção
   form.reset();
   numerosSelecionados.clear();
   atualizarNumerosSelecionados();
-  pixUploadDivForm.style.display = 'none';
   messageDiv.style.color = 'green';
   messageDiv.textContent = 'Abrindo WhatsApp para enviar seu pedido...';
 });
 
-// Botão copiar chave Pix
-document.getElementById('copyPixBtn').addEventListener('click', () => {
+// Copiar chave Pix (se ainda estiver usando)
+document.getElementById('copyPixBtn')?.addEventListener('click', () => {
   const pixKey = document.getElementById('pixKey').textContent.trim();
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(pixKey).then(() => {
