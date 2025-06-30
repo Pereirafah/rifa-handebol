@@ -8,7 +8,7 @@ const pixUploadDivForm = document.getElementById('pixUploadDivForm');
 const phoneInput = document.getElementById('phone');
 
 const VALOR_NUMERO = 10;
-const MAX_NUMEROS = 5;
+const MAX_NUMEROS = 100;
 
 let numerosSelecionados = new Set();
 
