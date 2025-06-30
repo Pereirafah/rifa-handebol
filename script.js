@@ -10,16 +10,7 @@ const phoneInput = document.getElementById('phone');
 const VALOR_NUMERO = 10;
 
 const nomes = [
-  Maria, Regiane, Vilma, Fernanda, Emília, Daniela, Sandra, Marisa, Emanoele, Dolores,
-Celina, Solange, Ângela, Margot, Dalila, Cristina, Débora, Eliane, Rosália, Simone,
-Andréa, Cleide, Roberta, Glória, Suzana, Adriana, Olga, Izabel, Juliana, Kátia,
-Irene, Jurema, Letícia, Marta, Paula, Marcela, Joana, Lenice, Fátima, Rosimeire,
-Elizabeth, Regina, Celeste, Rosângela, Isaura, Mônica, Leonor, Janete, Virgínia, Camila,
-Valéria, Adelaide, Sheila, Cleuza, Antônia, Joelma, Miriam, Olinda, Norma, Luciana,
-Alessandra, Clarice, Sônia, Jaqueline, Noêmia, Margarida, Patrícia, Estela, Dinorá,
-Rosana, Silvana, Margarete, Eugênia, Renata, Nazaré, Mirtes
-
-  /*"Maria", "Graziela", "Claudia", "Regiane", "Vilma", "Fernanda", "Emília", "Daniela", "Sandra", "Zuleika",
+  "Maria", "Graziela", "Claudia", "Regiane", "Vilma", "Fernanda", "Emília", "Daniela", "Sandra", "Zuleika",
   "Marisa", "Emanoele", "Dolores", "Celina", "Tereza", "Solange", "Ângela", "Guiomar", "Margot", "Dalila",
   "Anadark", "Cristina", "Débora", "Eliane", "Genilda", "Rosália", "Simone", "Helena", "Valquíria", "Andréa",
   "Cleide", "Elaine", "Roberta", "Glória", "Suzana", "Adriana", "Olga", "Izabel", "Juliana", "Kátia",
@@ -28,7 +19,7 @@ Rosana, Silvana, Margarete, Eugênia, Renata, Nazaré, Mirtes
   "Mônica", "Leonor", "Janete", "Raquel", "Virgínia", "Camila", "Roseli", "Valéria", "Adelaide", "Salete",
   "Zulmira", "Sheila", "Cleuza", "Antônia", "Joelma", "Iolanda", "Miriam", "Olinda", "Norma", "Luciana",
   "Alessandra", "Clarice", "Sônia", "Dirce", "Marlene", "Jaqueline", "Noêmia", "Margarida", "Patrícia", "Estela",
-  "Dinorá", "Márcia", "Rosana", "Silvana", "Neuza", "Margarete", "Eugênia", "Renata", "Nazaré", "Mirtes"*/
+  "Dinorá", "Márcia", "Rosana", "Silvana", "Neuza", "Margarete", "Eugênia", "Renata", "Nazaré", "Mirtes"
 ];
 
 const MAX_NUMEROS = nomes.length;
