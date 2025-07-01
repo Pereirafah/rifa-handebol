@@ -11,13 +11,13 @@ const VALOR_NUMERO = 10;
 
 const nomes = [
   "Regiane", "Vilma", "Fernanda", "Emília", "Daniela", "Sandra", "Marisa", "Emanoele", "Dolores",
-"Celina", "Solange", "Ângela", "Margot", "Dalila", "Cristina", "Débora", "Eliane", "Rosália", "Simone",
+"Celina", "Solange", "Ângela", "Margot", "Cristina", "Débora", "Eliane", "Rosália", "Simone",
 "Andréa", "Cleide", "Roberta", "Glória", "Suzana", "Adriana", "Olga", "Izabel", "Juliana", "Kátia",
-"Irene", "Jurema", "Marta", "Paula", "Marcela", "Joana", "Fátima", "Rosimeire",
+"Irene", "Marta", "Paula", "Joana", "Fátima", "Rosimeire",
 "Elizabeth", "Regina", "Celeste", "Rosângela", "Isaura", "Leonor", "Janete", "Virgínia",
 "Valéria", "Adelaide", "Sheila", "Cleuza", "Antônia", "Joelma", "Miriam", "Olinda", "Norma", "Luciana",
-"Alessandra", "Clarice", "Sônia", "Jaqueline", "Noêmia", "Margarida", "Patrícia", "Estela", "Dinorá",
-"Rosana", "Silvana", "Margarete", "Eugênia", "Renata", "Nazaré", "Mirtes"
+"Alessandra", "Sônia", "Jaqueline", "Noêmia", "Margarida", "Patrícia", "Estela", "Dinorá",
+"Rosana", "Silvana", "Eugênia", "Renata", "Nazaré", "Mirtes"
 
   /*"Maria", "Graziela", "Claudia", "Regiane", "Vilma", "Fernanda", "Emília", "Daniela", "Sandra", "Zuleika",
   "Marisa", "Emanoele", "Dolores", "Celina", "Tereza", "Solange", "Ângela", "Guiomar", "Margot", "Dalila",
