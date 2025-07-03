@@ -11,10 +11,9 @@ const VALOR_NUMERO = 10;
 
 const nomes = [
   "Regiane", "Fernanda", "Emília", "Daniela", "Sandra", "Marisa", "Emanoele", "Dolores", "Solange", "Ângela", "Margot", "Cristina", "Eliane", "Rosália", "Simone",
-"Andréa", "Cleide", "Roberta", "Suzana", "Adriana", "Izabel", "Kátia", "Marta", "Paula", "Joana", "Fátima", "Rosimeire",
-"Elizabeth", "Celeste", "Rosângela", "Isaura", "Janete",
-"Valéria", "Adelaide", "Sheila", "Cleuza", "Antônia", "Joelma", "Miriam", "Norma", "Luciana",
-"Alessandra", "Sônia", "Jaqueline", "Noêmia", "Margarida", "Estela",
+"Andréa", "Cleide", "Roberta", "Suzana", "Adriana", "Izabel", "Kátia", "Marta", "Paula", "Joana", "Fátima", "Rosimeire", "Rosângela", "Janete",
+"Valéria", "Sheila", "Cleuza", "Antônia", "Joelma", "Miriam", "Norma", "Luciana",
+"Alessandra", "Sônia", "Noêmia", "Margarida", "Estela",
 "Rosana", "Silvana", "Eugênia", "Renata", "Nazaré", "Mirtes"
 
 
