@@ -10,7 +10,7 @@ const phoneInput = document.getElementById('phone');
 const VALOR_NUMERO = 10;
 
 const nomes = [
-  "Regiane", "Fernanda", "Emília", "Daniela", "Sandra", "Marisa", "Emanoele", "Dolores", "Solange", "Ângela", "Margot", "Cristina", "Eliane", "Rosália", "Simone",
+  "Regiane", "Fernanda", "Emília", "Daniela", "Sandra", "Marisa", "Emanoele", "Solange", "Ângela", "Margot", "Cristina", "Eliane", "Rosália", "Simone",
 "Andréa", "Cleide", "Roberta", "Suzana", "Adriana", "Izabel", "Kátia", "Marta", "Paula", "Joana", "Fátima", "Rosimeire", "Rosângela", "Janete",
 "Valéria", "Sheila", "Cleuza", "Antônia", "Joelma", "Miriam", "Norma", "Luciana",
 "Alessandra", "Sônia", "Noêmia", "Margarida", "Estela",
